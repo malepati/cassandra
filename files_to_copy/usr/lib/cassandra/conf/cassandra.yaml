@@ -1,0 +1,30 @@
+cluster_name: 'REPLACE_CLUSTER_NAME'
+seed_provider:
+    - class_name: org.apache.cassandra.locator.SimpleSeedProvider
+      parameters:
+          - seeds: "127.0.0.1"
+listen_address: 172.17.0.2
+rpc_address: 0.0.0.0
+broadcast_address: 127.0.0.1
+broadcast_rpc_address: 127.0.0.1
+num_tokens: 16
+concurrent_reads: 16
+concurrent_counter_writes: 16
+commitlog_total_space_in_mb: 512
+commitlog_sync: periodic
+commitlog_sync_period_in_ms: 10000
+start_rpc: false
+auto_snapshot: false
+phi_convict_threshold: 12
+authenticator: PasswordAuthenticator
+authorizer: CassandraAuthorizer
+role_manager: CassandraRoleManager
+partitioner: org.apache.cassandra.dht.Murmur3Partitioner
+endpoint_snitch: GossipingPropertyFileSnitch
+enable_materialized_views: false
+disk_access_mode: mmap_index_only
+# concurrent compactors calculation is # of cores
+#concurrent_compactors
+# concurrent writes is 8 * # of cores
+#concurrent_writes
+# memtable_flush_writers: 2
