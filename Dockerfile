@@ -10,7 +10,7 @@ ENV MAX_HEAP_SIZE=1G
 RUN apk add --no-cache bash su-exec openntpd linux-pam openjdk8-jre-base=8.272.10-r4 python2 && \
     wget -O- http://archive.apache.org/dist/cassandra/${CASSANDRA_VERSION}/apache-cassandra-${CASSANDRA_VERSION}-bin.tar.gz | tar zx && \
     mv apache-cassandra-${CASSANDRA_VERSION} ${CASSANDRA_HOME} && \
-    rm -rf ${CASSANDRA_HOME}/javadoc && \
+    rm -rf ${CASSANDRA_HOME}/{javadoc,doc,CASSANDRA-14092.txt,CHANGES.txt,NEWS.txt,NOTICE.txt} && \
     addgroup -S cassandra && \
     adduser -S -G cassandra cassandra -s /bin/bash
 
