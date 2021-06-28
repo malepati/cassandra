@@ -13,6 +13,7 @@ concurrent_counter_writes: 16
 commitlog_total_space_in_mb: 512
 commitlog_sync: periodic
 commitlog_sync_period_in_ms: 10000
+start_native_transport: true
 start_rpc: false
 auto_snapshot: false
 phi_convict_threshold: 12
@@ -23,8 +24,9 @@ partitioner: org.apache.cassandra.dht.Murmur3Partitioner
 endpoint_snitch: GossipingPropertyFileSnitch
 enable_materialized_views: false
 disk_access_mode: mmap_index_only
+memtable_flush_writers: 2
+#allocate_tokens_for_keyspace: 
 # concurrent compactors calculation is # of cores
 #concurrent_compactors
 # concurrent writes is 8 * # of cores
 #concurrent_writes
-# memtable_flush_writers: 2
